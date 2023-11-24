@@ -33,8 +33,6 @@ try {
 
   const initPath = process.cwd();
   const __dirname = path.dirname(fileURLToPath(import.meta.url));
-  console.log("__dirname ",__dirname);
-  const srcDir = path.join(__dirname, '');
   
   const destinationFolder = process.argv.length >= 3 ? process.argv[2] : 'public';
   const destinationDir = path.join(initPath, destinationFolder);
@@ -45,12 +43,7 @@ try {
       overwrite: true,
     }
   ];
-  const files2 = [
-    {
-      fileName: 'ServiceWorkerStore.ts',
-      overwrite: true,
-    }
-  ];
+  
 
   for await (const file of files) {
     const success = await copyFile(
@@ -59,19 +52,23 @@ try {
         file.overwrite
     );
   }
+/*
+  const files2 = [
+    {
+      fileName: 'ServiceWorkerStore.ts',
+      overwrite: true,
+    }
+  ];
   const destinationFolderSRC = 'src';
   const destinationDirSRC = path.join(initPath, destinationFolderSRC);
 
-  console.log("destinationFolderSRC" , destinationFolderSRC);
-  console.log("destinationDirSRC" , destinationDirSRC);
-  
   for await (const file of files2) {
     const success = await copyFile(
         path.join(srcDir, file.fileName),
         path.join(destinationDirSRC, file.fileName),
         file.overwrite
     );
-  }
+  }*/
 
 } catch (err) {
   console.warn(err);
