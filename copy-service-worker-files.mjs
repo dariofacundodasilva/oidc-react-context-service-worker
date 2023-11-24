@@ -33,6 +33,7 @@ try {
 
   const initPath = process.cwd();
   const __dirname = path.dirname(fileURLToPath(import.meta.url));
+  console.log("__dirname ",__dirname);
   const srcDir = path.join(__dirname, 'node_modules' ,'oidc-client-service-worker');
   const srcDirFallback = path.join(__dirname, "..", 'node_modules' ,'oidc-client-service-worker');
   const destinationFolder = process.argv.length >= 3 ? process.argv[2] : 'public';
