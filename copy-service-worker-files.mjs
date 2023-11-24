@@ -59,8 +59,12 @@ try {
         file.overwrite
     );
   }
-  const destinationFolderSRC = process.argv.length >= 3 ? process.argv[2] : 'src';
+  const destinationFolderSRC = 'src';
   const destinationDirSRC = path.join(initPath, destinationFolderSRC);
+
+  console.log("destinationFolderSRC" , destinationFolderSRC);
+  console.log("destinationDirSRC" , destinationDirSRC);
+  
   for await (const file of files2) {
     const success = await copyFile(
         path.join(srcDir, file.fileName),
