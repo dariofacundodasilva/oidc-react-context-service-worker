@@ -2,7 +2,17 @@
   "name": "oidc-react-context-service-worker",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "ServiceWorkerStore.ts",
+  "exports": {
+    ".": {
+      "import": "./ServiceWorkerStore.ts",
+      "require": "./ServiceWorkerStore.ts"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    ""
+  ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
