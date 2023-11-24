@@ -20,6 +20,10 @@
     "type": "git",
     "url": "git+https://github.com/dariofacundodasilva/oidc-react-context-service-worker.git"
   },
+  "peerDependencies": {
+    "oidc-client-ts": "^2.2.1",
+    "react": ">=16.8.0"
+  },
   "author": "",
   "license": "ISC",
   "bugs": {
