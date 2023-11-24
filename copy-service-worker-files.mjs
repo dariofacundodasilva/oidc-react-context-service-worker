@@ -35,7 +35,7 @@ try {
   const __dirname = path.dirname(fileURLToPath(import.meta.url));
   console.log("__dirname ",__dirname);
   const srcDir = path.join(__dirname, '');
-  const srcDirFallback = path.join(__dirname, "..", 'node_modules' ,'oidc-client-service-worker');
+  
   const destinationFolder = process.argv.length >= 3 ? process.argv[2] : 'public';
   const destinationDir = path.join(initPath, destinationFolder);
 
@@ -52,13 +52,6 @@ try {
         path.join(destinationDir, file.fileName),
         file.overwrite
     );
-    if(!success){
-      await copyFile(
-          path.join(srcDirFallback, file.fileName),
-          path.join(destinationDir, file.fileName),
-          file.overwrite
-      );
-    }
   }
 
 } catch (err) {
