@@ -45,11 +45,26 @@ try {
       overwrite: true,
     }
   ];
+  const files2 = [
+    {
+      fileName: 'ServiceWorkerStore.ts',
+      overwrite: true,
+    }
+  ];
 
   for await (const file of files) {
     const success = await copyFile(
         path.join(srcDir, file.fileName),
         path.join(destinationDir, file.fileName),
+        file.overwrite
+    );
+  }
+  const destinationFolderSRC = process.argv.length >= 3 ? process.argv[2] : 'src';
+  const destinationDirSRC = path.join(initPath, destinationFolderSRC);
+  for await (const file of files2) {
+    const success = await copyFile(
+        path.join(srcDir, file.fileName),
+        path.join(destinationDirSRC, file.fileName),
         file.overwrite
     );
   }
